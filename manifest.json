@@ -1,0 +1,37 @@
+{
+  "name": "ChromeRX Example",
+  "version": "0.0.1",
+  "description": "ChromeRX Example",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "assets/images/favicon-16x16.png",
+    "32": "assets/images/favicon-32x32.png",
+    "48": "assets/images/favicon.ico"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://ssl.google-analytics.com https://www.google-analytics.com https://www.googletagmanager.com; object-src 'self'",
+  "web_accessible_resources": [
+    "*.html",
+    "assets/*",
+    "*.png"
+  ],
+  "manifest_version": 2
+}
